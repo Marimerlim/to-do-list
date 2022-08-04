@@ -1,4 +1,37 @@
 import React from "react";
+import styled from "styled-components";
+
+export const Body = styled.div`
+  background-color: pink;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: center;
+
+  input {
+    border: none;
+    width: 50%;
+    padding: 20px;
+  }
+
+  button {
+    border: none;
+    background-color: purple;
+    color: white;
+    padding: 10px;
+    margin: 20px;
+  }
+`;
+export const Tarefa = styled.div`
+  width: 25em;
+  margin: 0 auto 10px;
+
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+
+  background-color: deeppink;
+`;
 
 export default class App extends React.Component {
   state = {
@@ -32,7 +65,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <>
+      <Body>
         <h1>Lista de Tarefas</h1>
         <input
           onChange={this.buscarTarefa}
@@ -43,12 +76,12 @@ export default class App extends React.Component {
         <button onClick={this.adicionar}>Adicionar</button>
 
         {this.state.lista.map((item) => (
-          <div>
+          <Tarefa>
             <p>{item.tarefa}</p>
             <button onClick={() => this.removerTarefa(item.id)}>Remover</button>
-          </div>
+          </Tarefa>
         ))}
-      </>
+      </Body>
     );
   }
 }
