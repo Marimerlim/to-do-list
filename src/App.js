@@ -1,16 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Body = styled.div`
+export const Corpo = styled.div`
   background-color: pink;
   width: 80%;
   margin: 0 auto;
   text-align: center;
   vertical-align: center;
+  padding: 10px;
+
+  h1 {
+    padding: 10px;
+  }
 
   input {
     border: none;
     width: 50%;
+    border-radius: 10px;
     padding: 20px;
   }
 
@@ -19,18 +25,29 @@ export const Body = styled.div`
     background-color: purple;
     color: white;
     padding: 10px;
+    border-radius: 10px;
     margin: 20px;
   }
 `;
-export const Tarefa = styled.div`
-  width: 25em;
-  margin: 0 auto 10px;
 
+export const Tarefa = styled.div`
+  width: 70%;
+  margin: 5px auto;
   display: flex;
   justify-content: space-between;
-  text-align: center;
-
   background-color: deeppink;
+  border-radius: 25px;
+
+  p {
+    margin-left: 20px;
+    color: white;
+  }
+
+  button {
+    background-color: lightsalmon;
+    color: black;
+    border-radius: 30px;
+  }
 `;
 
 export default class App extends React.Component {
@@ -65,7 +82,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Body>
+      <Corpo>
         <h1>Lista de Tarefas</h1>
         <input
           onChange={this.buscarTarefa}
@@ -81,7 +98,7 @@ export default class App extends React.Component {
             <button onClick={() => this.removerTarefa(item.id)}>Remover</button>
           </Tarefa>
         ))}
-      </Body>
+      </Corpo>
     );
   }
 }
